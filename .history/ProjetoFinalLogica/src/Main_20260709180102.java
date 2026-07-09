@@ -430,7 +430,7 @@ public class Main {
                             if(listaManutencaos.stream().anyMatch(m -> m.getCodigo() == codigoAlterar) == true){
                                 for(Manutencao m : listaManutencaos){
                                     if(m.getCodigo() == codigoAlterar){
-                                        System.out.println("Digite a situação nova(Aberta, Em Andamento ou Finalizada):");
+                                        System.out.println("Digite a situação nova(Aberta, Em Manutenção ou Finalizada):");
                                         String situacao = sc.nextLine();
   
                             if(situacao.equals("Finalizada")){

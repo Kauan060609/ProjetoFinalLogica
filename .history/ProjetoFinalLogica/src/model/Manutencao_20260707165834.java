@@ -1,6 +1,5 @@
 package model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import exception.CodigoDuplicadoException;
@@ -14,7 +13,7 @@ public class Manutencao {
     private int codigoEquipamentoRelacionado;
     private int codigoTecnicoRelacionado;
     private String dataAbertura;
-    private LocalDate dataEncerramento;
+    private String dataEncerramento;
     private String tipoManutencao;
     private String descricaoProblema;
     private String situacao;
@@ -62,11 +61,11 @@ public class Manutencao {
         this.dataAbertura = dataAbertura;
     }
 
-    public LocalDate getDataEncerramento() {
+    public String getDataEncerramento() {
         return dataEncerramento;
     }
 
-    public void setDataEncerramento(LocalDate dataEncerramento) {
+    public void setDataEncerramento(String dataEncerramento) {
         this.dataEncerramento = dataEncerramento;
     }
 
@@ -98,7 +97,7 @@ public class Manutencao {
     }
 
     public Manutencao(int codigo, int codigoEquipamentoRelacionado, int codigoTecnicoRelacionado, String dataAbertura,
-            LocalDate dataEncerramento, String tipoManutencao, String descricaoProblema, String situacao, ArrayList<Manutencao> listaManutencaos, ArrayList<Equipamento> listaEquipamentos, ArrayList<Tecnico> listaTecnicos) throws SituacaoInvalidaException,CodigoDuplicadoException, CodigoNaoExisteException,ManutencaoAbertaException {
+            String dataEncerramento, String tipoManutencao, String descricaoProblema, String situacao, ArrayList<Manutencao> listaManutencaos, ArrayList<Equipamento> listaEquipamentos, ArrayList<Tecnico> listaTecnicos) throws SituacaoInvalidaException,CodigoDuplicadoException, CodigoNaoExisteException,ManutencaoAbertaException {
                 for(Equipamento e : listaEquipamentos){
                     if(e.getCodigo() == codigoEquipamentoRelacionado){
                         if(e.isEmManutencao()){

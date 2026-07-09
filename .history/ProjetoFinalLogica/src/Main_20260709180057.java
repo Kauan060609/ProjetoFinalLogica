@@ -331,7 +331,7 @@ public class Main {
                  
                     while (escolhaManutencao != 6) { 
                     System.out.println("===MENU MANUTENÇÕES===");
-                    System.out.println("1-Registrar Manutenção\n2-Consultar Manutenção\n3-Alterar Situação\n4-Finalizar Manutenção\n5-Listar Manutenções\n6-Sair");
+                    System.out.println("1-Registrar Manutenção\n2-Consultar Manuteção\n3-Alterar Situação\n4-Finalizar Manutenção\n5-Listar Manutenções\n6-Sair");
                     escolhaManutencao = sc.nextInt();
                     sc.nextLine();
 
@@ -430,7 +430,7 @@ public class Main {
                             if(listaManutencaos.stream().anyMatch(m -> m.getCodigo() == codigoAlterar) == true){
                                 for(Manutencao m : listaManutencaos){
                                     if(m.getCodigo() == codigoAlterar){
-                                        System.out.println("Digite a situação nova(Aberta, Em Andamento ou Finalizada):");
+                                        System.out.println("Digite a situação nova(Aberta, Em Manutenção ou Finalizada):");
                                         String situacao = sc.nextLine();
   
                             if(situacao.equals("Finalizada")){

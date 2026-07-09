@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -70,6 +69,8 @@ public class Main {
                             }catch(SituacaoInvalidaException erro){
                                 System.out.println("Erro - " + erro.getMessage());
                             }catch(CampoVazioException erro){
+                                System.out.println("Erro - " + erro.getMessage());
+                            }catch(Exception erro){
                                 System.out.println("Erro - " + erro.getMessage());
                             }
                             break;
@@ -219,6 +220,8 @@ public class Main {
                                 System.out.println("Erro - " + erro.getMessage());
                             }catch(CampoVazioException erro){
                                 System.out.println("Erro - " + erro.getMessage());
+                            }catch(Exception erro){
+                                System.out.println("Erro - " + erro.getMessage());
                             }
                             
                             break;
@@ -273,8 +276,6 @@ public class Main {
                                 throw new CodigoNaoExisteException("O código não existe na base de dados!");
                             }
                         }catch(CodigoNaoExisteException erro){
-                            System.out.println("Erro - " + erro.getMessage());
-                        }catch(MatriculaInvalidaException erro){
                             System.out.println("Erro - " + erro.getMessage());
                         }
 
@@ -331,7 +332,7 @@ public class Main {
                  
                     while (escolhaManutencao != 6) { 
                     System.out.println("===MENU MANUTENÇÕES===");
-                    System.out.println("1-Registrar Manutenção\n2-Consultar Manutenção\n3-Alterar Situação\n4-Finalizar Manutenção\n5-Listar Manutenções\n6-Sair");
+                    System.out.println("1-Registrar Manutenção\n2-Consultar Manuteção\n3-Alterar Situação\n4-Finalizar Manutenção\n5-Listar Manutenções\n6-Sair");
                     escolhaManutencao = sc.nextInt();
                     sc.nextLine();
 
@@ -353,7 +354,7 @@ public class Main {
                             String tipo = sc.nextLine();
                             System.out.println("Descrição: ");
                             String descricao = sc.nextLine();
-                            System.out.println("Situação(Aberta, Em Manutenção ou Finalizada):");
+                            System.out.println("Situação(Aberta, Em andamento ou Finalizada):");
                             String situacao = sc.nextLine();
 
                             Manutencao m1 = new Manutencao(codigo, codigoEquipamentoRelacionado, codigoTecnicoRelacionado, dataAbertura,null, tipo, descricao, situacao, listaManutencaos, listaEquipamentos, listaTecnicos);
@@ -378,7 +379,9 @@ public class Main {
                             System.out.println("Erro - " + erro.getMessage());
                         }catch(ManutencaoAbertaException erro){
                             System.out.println("Erro - " + erro.getMessage());
-                        }
+                        }catch(Exception erro){
+                                System.out.println("Erro - " + erro.getMessage());
+                            }
                             break;
 
                         case 2:
@@ -430,15 +433,16 @@ public class Main {
                             if(listaManutencaos.stream().anyMatch(m -> m.getCodigo() == codigoAlterar) == true){
                                 for(Manutencao m : listaManutencaos){
                                     if(m.getCodigo() == codigoAlterar){
-                                        System.out.println("Digite a situação nova(Aberta, Em Andamento ou Finalizada):");
+                                        System.out.println("Digite a situação nova(Aberta, Em andamento ou Finalizada):");
                                         String situacao = sc.nextLine();
   
                             if(situacao.equals("Finalizada")){
                                 if(m.getDataEncerramento() == null){
-                                
+                                    System.out.println("Digite o dia do encerramento da manutenção: ");
+                                String encerramento = sc.nextLine();
                                 for(Manutencao mm : listaManutencaos){
                                     if(mm.getCodigo() == codigoAlterar){
-                                        mm.setDataEncerramento(LocalDate.now());
+                                        mm.setDataEncerramento(encerramento);
                                          }
                                 }
 
@@ -490,10 +494,11 @@ public class Main {
 
                             
                             if(listaManutencaos.stream().anyMatch(m -> m.getCodigo() == codigoFinalizar) == true){
-
+                                System.out.println("Digite o dia do encerramento da manutenção: ");
+                                String encerramento = sc.nextLine();
                                 for(Manutencao m : listaManutencaos){
                                     if(m.getCodigo() == codigoFinalizar){
-                                        m.setDataEncerramento(LocalDate.now());
+                                        m.setDataEncerramento(encerramento);
 
                                     for(Equipamento e : listaEquipamentos){
                                     if(e.getCodigo() == m.getCodigoEquipamentoRelacionado()){
@@ -523,7 +528,7 @@ public class Main {
                             int contador = 0;
                             for(Manutencao m : listaManutencaos){
                                 contador++;
-                                System.out.println("===MANUTENÇÃO " + contador + "===");
+                                System.out.println("===MÁQUINA " + contador + "===");
                                 m.mostrarManutencao();
                             }
                             break;
@@ -572,7 +577,7 @@ public class Main {
                                     quantAtivo++;
                                 }else if(e.getStatus().equals("Inativo")){
                                     quantInativo++;
-                                }else if(e.getStatus().equals("Em Manutenção")){
+                                }else if(e.getStatus().equals("Em andamento")){
                                     quantEmAndamento++;
                                 }
                             }
