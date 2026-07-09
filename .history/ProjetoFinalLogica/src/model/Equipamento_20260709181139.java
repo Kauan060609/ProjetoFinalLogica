@@ -93,7 +93,7 @@ public  class Equipamento {
     public Equipamento(int codigo, String nome, String categoria, String fabricante, String modelo,
             String setorInstalado, String dataInstalacao, String status, ArrayList<Equipamento> listaEquipamentos) throws SituacaoInvalidaException, CodigoDuplicadoException, CampoVazioException{
     
-        if(codigo == 0 || nome.isEmpty() || categoria.isEmpty() || categoria.isEmpty() || fabricante.isEmpty() || modelo.isEmpty()|| setorInstalado.isEmpty() || dataInstalacao.isEmpty() || status.isEmpty()){
+        if(codigo == 0 || nome.isEmpty() || categoria.isEmpty() || categoria == "" || fabricante == "" || modelo == "" || setorInstalado == "" || dataInstalacao == "" || status == ""){
             throw new CampoVazioException("Nenhum dos campos pode estar vazio!");
         }
         if(listaEquipamentos.stream().anyMatch(e -> e.getCodigo() == codigo) == true){

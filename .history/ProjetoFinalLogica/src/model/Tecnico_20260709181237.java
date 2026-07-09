@@ -25,7 +25,7 @@ public class Tecnico {
 
      public Tecnico(int codigo, String nome, int matricula, String setor, String telefone, ArrayList<Tecnico> listaTecnicos) throws CodigoDuplicadoException, MatriculaInvalidaException, CampoVazioException {
         
-        if(codigo == 0 || nome.isEmpty() || matricula == 0 || setor.isEmpty() || telefone.isEmpty()){
+        if(codigo == 0 || nome.isEmpty() || matricula == 0 || setor.isEmpty() || telefone == ""){
             throw new CampoVazioException("Nenhum dos campos pode estar vazio!");
         }
         if(listaTecnicos.stream().anyMatch(t -> t.getCodigo() == codigo) == true){
