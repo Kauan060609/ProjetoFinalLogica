@@ -143,9 +143,6 @@ public  class Equipamento {
         if(status.equalsIgnoreCase("Operando") == false && status.equalsIgnoreCase("Em Manutenção") == false && status.equalsIgnoreCase("Inativo")== false){
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Inativo");
         }
-        if(status.isEmpty()){
-            throw new CampoVazioException("A situação não pode estar vazia!");
-        }
         this.status = status;
     };
 

@@ -100,6 +100,7 @@ public class Tecnico {
          this.telefone = telefone;
      }
 
+
      public boolean isResponsavel() {
          return responsavel;
      }

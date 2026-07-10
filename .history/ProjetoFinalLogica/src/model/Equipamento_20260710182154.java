@@ -144,7 +144,7 @@ public  class Equipamento {
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Inativo");
         }
         if(status.isEmpty()){
-            throw new CampoVazioException("A situação não pode estar vazia!");
+            throw new CampoVazioException("A situação não pode estar");
         }
         this.status = status;
     };

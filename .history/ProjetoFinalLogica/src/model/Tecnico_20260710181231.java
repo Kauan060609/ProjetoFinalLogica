@@ -100,6 +100,10 @@ public class Tecnico {
          this.telefone = telefone;
      }
 
+     public void setCodigo(int codigo) {
+         this.codigo = codigo;
+     }
+
      public boolean isResponsavel() {
          return responsavel;
      }

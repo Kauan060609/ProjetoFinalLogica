@@ -95,9 +95,13 @@ public class Tecnico {
 
      public void setTelefone(String telefone) throws CampoVazioException {
         if(telefone.isEmpty()){
-            throw new CampoVazioException("O telefone não pode estar vazio!");
+            throw new Campova
         }
          this.telefone = telefone;
+     }
+
+     public void setCodigo(int codigo) {
+         this.codigo = codigo;
      }
 
      public boolean isResponsavel() {

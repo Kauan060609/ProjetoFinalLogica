@@ -279,7 +279,7 @@ public class Main {
                         }catch(MatriculaInvalidaException erro){
                             System.out.println("Erro - " + erro.getMessage());
                         }catch(CampoVazioException erro){
-                            System.out.println("Erro - " + erro.getMessage());
+                            System.out.println("Erro - " + erro.getm);
                         }
 
                             break;
@@ -381,8 +381,6 @@ public class Main {
                         }catch(SituacaoInvalidaException erro){
                             System.out.println("Erro - " + erro.getMessage());
                         }catch(ManutencaoAbertaException erro){
-                            System.out.println("Erro - " + erro.getMessage());
-                        }catch(CampoVazioException erro){
                             System.out.println("Erro - " + erro.getMessage());
                         }
                             break;

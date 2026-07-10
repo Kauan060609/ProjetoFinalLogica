@@ -382,9 +382,7 @@ public class Main {
                             System.out.println("Erro - " + erro.getMessage());
                         }catch(ManutencaoAbertaException erro){
                             System.out.println("Erro - " + erro.getMessage());
-                        }catch(CampoVazioException erro){
-                            System.out.println("Erro - " + erro.getMessage());
-                        }
+                        }catch()
                             break;
 
                         case 2:

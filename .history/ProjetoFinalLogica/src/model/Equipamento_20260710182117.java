@@ -102,7 +102,7 @@ public  class Equipamento {
         return dataInstalacao;
     }
 
-    public void setDataInstalacao(String dataInstalacao) throws CampoVazioException{
+    public void setDataInstalacao(String dataInstalacao) {
         if(dataInstalacao.isEmpty()){
             throw new CampoVazioException("A data de instalação não pode estar vazia!");
         }
@@ -139,12 +139,9 @@ public  class Equipamento {
         return status;
     }
 
-    public void setStatus(String status) throws SituacaoInvalidaException,CampoVazioException{
+    public void setStatus(String status) throws SituacaoInvalidaException{
         if(status.equalsIgnoreCase("Operando") == false && status.equalsIgnoreCase("Em Manutenção") == false && status.equalsIgnoreCase("Inativo")== false){
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Inativo");
-        }
-        if(status.isEmpty()){
-            throw new CampoVazioException("A situação não pode estar vazia!");
         }
         this.status = status;
     };

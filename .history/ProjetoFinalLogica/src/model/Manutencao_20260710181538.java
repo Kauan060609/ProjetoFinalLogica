@@ -80,6 +80,7 @@ public class Manutencao {
     }
 
     public void setDataEncerramento(LocalDate dataEncerramento) {
+        if(dataEncerramento.isemp)
         this.dataEncerramento = dataEncerramento;
     }
 
@@ -87,10 +88,7 @@ public class Manutencao {
         return tipoManutencao;
     }
 
-    public void setTipoManutencao(String tipoManutencao) throws CampoVazioException{
-        if(tipoManutencao.isEmpty()){
-            throw new CampoVazioException("O tipo da manutenção não pode estar vazio!");
-        }
+    public void setTipoManutencao(String tipoManutencao) {
         this.tipoManutencao = tipoManutencao;
     }
 
@@ -98,10 +96,7 @@ public class Manutencao {
         return descricaoProblema;
     }
 
-    public void setDescricaoProblema(String descricaoProblema) throws CampoVazioException{
-        if(descricaoProblema.isEmpty()){
-            throw new CampoVazioException("A descrição do problema não pode estar vazia!");
-        }
+    public void setDescricaoProblema(String descricaoProblema) {
         this.descricaoProblema = descricaoProblema;
     }
 
@@ -109,21 +104,15 @@ public class Manutencao {
         return situacao;
     }
 
-    public void setSituacao(String situacao)throws SituacaoInvalidaException, CampoVazioException {
+    public void setSituacao(String situacao)throws SituacaoInvalidaException {
         if(situacao.equalsIgnoreCase("Aberta") == false && situacao.equalsIgnoreCase("Em andamento") == false && situacao.equalsIgnoreCase("Finalizada") ==  false){
              throw new SituacaoInvalidaException("Situação Inválida inserida!");
           }
-        if(situacao.isEmpty()){
-            throw new CampoVazioException("A situação não pode estar vazia!");
-        }
         this.situacao = situacao;
     }
 
     public Manutencao(int codigo, int codigoEquipamentoRelacionado, int codigoTecnicoRelacionado, String dataAbertura,
-            LocalDate dataEncerramento, String tipoManutencao, String descricaoProblema, String situacao, ArrayList<Manutencao> listaManutencaos, ArrayList<Equipamento> listaEquipamentos, ArrayList<Tecnico> listaTecnicos) throws SituacaoInvalidaException,CodigoDuplicadoException, CodigoNaoExisteException,ManutencaoAbertaException, CampoVazioException {
-                if(codigo == 0 || codigoEquipamentoRelacionado == 0 || codigoTecnicoRelacionado == 0 || dataAbertura.isEmpty() || tipoManutencao.isEmpty() || descricaoProblema.isEmpty() || situacao.isEmpty() ){
-                    throw new CampoVazioException("Nenhum dos campos pode estar vazio!");
-                }
+            LocalDate dataEncerramento, String tipoManutencao, String descricaoProblema, String situacao, ArrayList<Manutencao> listaManutencaos, ArrayList<Equipamento> listaEquipamentos, ArrayList<Tecnico> listaTecnicos) throws SituacaoInvalidaException,CodigoDuplicadoException, CodigoNaoExisteException,ManutencaoAbertaException {
                 for(Equipamento e : listaEquipamentos){
                     if(e.getCodigo() == codigoEquipamentoRelacionado){
                         if(e.isEmManutencao()){

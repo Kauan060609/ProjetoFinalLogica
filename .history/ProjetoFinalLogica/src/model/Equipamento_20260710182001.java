@@ -80,10 +80,7 @@ public  class Equipamento {
         return modelo;
     }
 
-    public void setModelo(String modelo) throws CampoVazioException {
-        if(modelo.isEmpty()){
-            throw new CampoVazioException("O modelo não pode estar vazio!");
-        }
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
@@ -91,10 +88,7 @@ public  class Equipamento {
         return setorInstalado;
     }
 
-    public void setSetorInstalado(String setorInstalado) throws CampoVazioException{
-        if(setorInstalado.isEmpty()){
-            throw new CampoVazioException("O setor instalado não pode estar vazio");
-        }
+    public void setSetorInstalado(String setorInstalado) {
         this.setorInstalado = setorInstalado;
     }
 
@@ -102,10 +96,7 @@ public  class Equipamento {
         return dataInstalacao;
     }
 
-    public void setDataInstalacao(String dataInstalacao) throws CampoVazioException{
-        if(dataInstalacao.isEmpty()){
-            throw new CampoVazioException("A data de instalação não pode estar vazia!");
-        }
+    public void setDataInstalacao(String dataInstalacao) {
         this.dataInstalacao = dataInstalacao;
     }
 
@@ -139,12 +130,9 @@ public  class Equipamento {
         return status;
     }
 
-    public void setStatus(String status) throws SituacaoInvalidaException,CampoVazioException{
+    public void setStatus(String status) throws SituacaoInvalidaException{
         if(status.equalsIgnoreCase("Operando") == false && status.equalsIgnoreCase("Em Manutenção") == false && status.equalsIgnoreCase("Inativo")== false){
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Inativo");
-        }
-        if(status.isEmpty()){
-            throw new CampoVazioException("A situação não pode estar vazia!");
         }
         this.status = status;
     };

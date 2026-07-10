@@ -60,10 +60,8 @@ public class Tecnico {
          return nome;
      }
 
-     public void setNome(String nome) throws CampoVazioException{
-        if(nome.isEmpty()){
-            throw new CampoVazioException("O nome não pode estar vazio!");
-        }
+     public void setNome(String nome) {
+        if(nome.isEmpty())
          this.nome = nome;
      }
 
@@ -82,10 +80,7 @@ public class Tecnico {
          return setor;
      }
 
-     public void setSetor(String setor) throws CampoVazioException{
-        if(setor.isEmpty()){
-            throw new CampoVazioException("O setor não pode estar vazio!");
-        }
+     public void setSetor(String setor) {
          this.setor = setor;
      }
 
@@ -93,11 +88,12 @@ public class Tecnico {
          return telefone;
      }
 
-     public void setTelefone(String telefone) throws CampoVazioException {
-        if(telefone.isEmpty()){
-            throw new CampoVazioException("O telefone não pode estar vazio!");
-        }
+     public void setTelefone(String telefone) {
          this.telefone = telefone;
+     }
+
+     public void setCodigo(int codigo) {
+         this.codigo = codigo;
      }
 
      public boolean isResponsavel() {
