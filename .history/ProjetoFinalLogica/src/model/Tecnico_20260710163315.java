@@ -66,7 +66,7 @@ public class Tecnico {
      }
 
      public void setMatricula(int matricula, ArrayList <Tecnico> listaTecnicos) throws MatriculaInvalidaException {
-        if(listaTecnicos.stream().anyMatch(t -> t.getMatricula() == matricula && t.getCodigo() != this.codigo) == true  ){
+        if(listaTecnicos.stream().anyMatch(t -> t.getMatricula() == matricula) == true &&  ){
             throw new MatriculaInvalidaException("Essa  matrícula já está cadastrada!");
         }
          this.matricula = matricula;

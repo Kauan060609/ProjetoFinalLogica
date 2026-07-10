@@ -141,6 +141,10 @@ public  class Equipamento {
         }
     }
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public boolean isEmManutencao() {
         return emManutencao;
     }

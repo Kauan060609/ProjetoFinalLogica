@@ -91,7 +91,7 @@ public class Manutencao {
     }
 
     public void setSituacao(String situacao)throws SituacaoInvalidaException {
-        if(situacao.equalsIgnoreCase("Aberta") == false && situacao.equalsIgnoreCase("Em andamento") == false && situacao.equalsIgnoreCase("Finalizada") ==  false){
+        if(situacao.equalsIgnoreCase("Aberta") == false && situacao.equals("Em andamento") == false && situacao.equals("Finalizada") ==  false){
              throw new SituacaoInvalidaException("Situação Inválida inserida!");
           }
         this.situacao = situacao;
@@ -131,7 +131,7 @@ public class Manutencao {
         this.dataEncerramento = dataEncerramento;
         this.tipoManutencao = tipoManutencao;
         this.descricaoProblema = descricaoProblema;
-        if(situacao.equalsIgnoreCase("Aberta") == false && situacao.equalsIgnoreCase("Em andamento") == false && situacao.equalsIgnoreCase("Finalizada") ==  false){
+        if(situacao.equals("Aberta") == false && situacao.equals("Em andamento") == false && situacao.equals("Finalizada") ==  false){
              throw new SituacaoInvalidaException("Situação Inválida inserida!");
                           }
         this.situacao = situacao;

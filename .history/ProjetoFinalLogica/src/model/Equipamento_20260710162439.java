@@ -107,7 +107,7 @@ public  class Equipamento {
         this.setorInstalado = setorInstalado;
         this.dataInstalacao = dataInstalacao;
 
-        if(status.equalsIgnoreCase("Operando") == false && status.equalsIgnoreCase("Em andamento") == false && status.equalsIgnoreCase("Inativo")== false){
+        if(status.equalsIgnoreCase("Operando") == false && status.equals("Em Manutenção") == false && status.equals("Inativo")== false){
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Invativo");
         }
         this.status = status;
@@ -119,7 +119,7 @@ public  class Equipamento {
     }
 
     public void setStatus(String status) throws SituacaoInvalidaException{
-        if(status.equalsIgnoreCase("Operando") == false && status.equalsIgnoreCase("Em Manutenção") == false && status.equalsIgnoreCase("Inativo")== false){
+        if(status.equals("Operando") == false && status.equals("Em Manutenção") == false && status.equals("Inativo")== false){
             throw new SituacaoInvalidaException("O Status deve ser: Operando, Em Manutenção ou Inativo");
         }
         this.status = status;
@@ -139,6 +139,10 @@ public  class Equipamento {
         } else{
             System.out.println("Esse equipamento não está em manutenção");
         }
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public boolean isEmManutencao() {

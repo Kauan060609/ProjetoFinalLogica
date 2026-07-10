@@ -353,7 +353,7 @@ public class Main {
                             String tipo = sc.nextLine();
                             System.out.println("Descrição: ");
                             String descricao = sc.nextLine();
-                            System.out.println("Situação(Aberta, Em andamento ou Finalizada):");
+                            System.out.println("Situação(Aberta, Em Manutenção ou Finalizada):");
                             String situacao = sc.nextLine();
 
                             Manutencao m1 = new Manutencao(codigo, codigoEquipamentoRelacionado, codigoTecnicoRelacionado, dataAbertura,null, tipo, descricao, situacao, listaManutencaos, listaEquipamentos, listaTecnicos);
