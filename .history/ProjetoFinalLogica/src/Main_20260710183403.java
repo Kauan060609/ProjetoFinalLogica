@@ -488,7 +488,7 @@ public class Main {
 
                             for(Manutencao m : listaManutencaos){
                                 if(m.getCodigo() == codigoFinalizar){
-                                    if(m.getSituacao().equalsIgnoreCase("Finalizada")){
+                                    if(m.getSituacao().equals("Finalizada")){
                                         throw new JaFinalizadaException("A manutenção já foi finalizada!");
                                     }
                                 }
@@ -574,9 +574,9 @@ public class Main {
                             int quantAtivo = 0,quantInativo = 0, quantEmAndamento = 0;
 
                             for(Equipamento e : listaEquipamentos){
-                                if(e.getStatus().equalsIgnoreCase("Operando")){
+                                if(e.getStatus().equals("Operando")){
                                     quantAtivo++;
-                                }else if(e.getStatus().equalsIgnoreCase("Inativo")){
+                                }else if(e.getStatus().equals("Inativo")){
                                     quantInativo++;
                                 }else if(e.getStatus().equalsIgnoreCase("Em Manutenção")){
                                     quantEmAndamento++;

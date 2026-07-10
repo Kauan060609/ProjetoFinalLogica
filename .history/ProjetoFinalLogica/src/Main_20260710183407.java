@@ -488,7 +488,7 @@ public class Main {
 
                             for(Manutencao m : listaManutencaos){
                                 if(m.getCodigo() == codigoFinalizar){
-                                    if(m.getSituacao().equalsIgnoreCase("Finalizada")){
+                                    if(m.getSituacao().equals("Finalizada")){
                                         throw new JaFinalizadaException("A manutenção já foi finalizada!");
                                     }
                                 }
